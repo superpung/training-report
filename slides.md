@@ -1,383 +1,278 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
+theme: default
+background: null
+class: text-center
 highlighter: shiki
-# show line numbers in code blocks
 lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
 drawings:
   persist: false
+title: 麒麟软件实训答辩
 ---
 
-# Welcome to Slidev
+# 麒麟软件实训答辩
 
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+2022 年 6 月 17 日
 
 ---
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
+layout: two-cols
 ---
 
-# Navigation
+# 1. Linux 基础知识
+&nbsp;
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+1.1 查看系统信息：`cat /etc/os-release`
+![](/1-1-1.png)
 
-### Keyboard Shortcuts
+1.2 基础配置
+- 设置语言环境、设置键盘：`localectl`
+![](/1-2-1.png)
+- 设置日期和时间：`timedatectl`
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+::right::
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+1.3 管理用户和用户组
+
+- 管理用户：`useradd`、`usermod`、`userdel`
+
+	![](/1-3-1.png)
+
+	![](/1-3-2.png)
+
+- 管理用户组：
+  `groupadd`、`groupmod`、`groupdel`、`gpasswd`、
+  `newgrp`
+
+	![](/1-3-3.png)
+
+  ![](/1-2-6.png)
 
 ---
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+layout: two-cols
 ---
 
-# Code
+# 1. Linux 基础知识
+&nbsp;
 
-Use code snippets and get the highlighting directly![^1]
+1.4 使用 DNF 管理软件包
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
+- 配置 DNF、创建本地软件源仓库
+- 添加、启用和禁用软件源：`dnf config-manager`
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
+![](/1-4.png)
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
+1.5 管理服务
 
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+- 管理系统服务
+- 改变运行级别
+- 关闭、暂停和休眠系统
 
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+::right::
+
+1.6 管理进程
+
+- 查看进程（`who`、`ps`、`top`、`kill`）
+- 调度启动进程
+- 挂起 / 恢复进程
+
+![](/1-6-1.png)
+
+![](/1-6-2.png)
+
+![](/1-5-2.png)
 
 ---
 
-# Components
+# 2. 网络知识
 
-<div grid="~ cols-2 gap-4">
+<div class="grid grid-cols-2 gap-4">
 <div>
 
-You can use Vue components directly inside your slides.
+2.1 OSI 7 层模型
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+- 物理层：通信介质的信号到数字信号
 
-```html
-<Counter :count="10" />
-```
+- 数据链接层：局域网之间计算机通信
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+- 网络层：IP 地址、路由
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+- 传输层：TCP 协议、UDP 协议、端口
+
+- 会话层：控制发包的数据，会话层控制传输层三次握手
+
+- 表示层：文件格式
+
+- 应用层：应用程序使用
 
 </div>
 <div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
+2.2 TCP、IP 协议
 
-<Tweet id="1390115482657726468" scale="0.65" />
+- 物理层、数据链接层、网络层、传输层、应用层
 
-</div>
-</div>
+- 源 mac 地址和目标 mac 地址、源 IP 地址和目标 IP 地址、源端口和目标端口
 
+2.3 ARP 协议和 VLAN
 
----
-class: px-20
----
+- Address Resolution Protocol，地址解析协议：把 IP 地址解析成 mac 地址
 
-# Themes
+- 先发广播，再回应
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
+- ARP 欺骗、广播风暴
 
 </div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
 </div>
 
 ---
 
-# LaTeX
+# 2. 网络知识
 
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+<div class="grid grid-cols-2 gap-4">
+<div>
 
-<br>
+2.4 tcpdump 抓包
 
-Inline $\sqrt{3x-1}+(1+x)^2$
+- `-i` 指定网卡
+- 默认抓 tcp，可以通过 `udp` 指定监听 udp、`icmp` 指定抓 ping 包
+- `port` 指定端口
+- 其他参数：`-n`、`-nn`、`-c`、`-w`、`-S`
 
-Block
-$$
-\begin{array}{c}
+2.5 常用的网络命令
 
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+- `nc`
+- `nmap`：扫描端口
+- `telnet <ip> <port>`： 连接服务器，远程登录
+- `iftop` 监控外部 ip 地址的流量
+- `traceroute` 追踪路由
 
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+</div>
+<div>
 
-\nabla \cdot \vec{\mathbf{B}} & = 0
+2.6 静态路由
+- 查看路由表
+- 添加静态路由
+- 启用内核转换参数
+- 静态路由和内核转换参数的持久化存储
+- 动态路由：相互学习，动态更新路由表
 
-\end{array}
-$$
+2.7 iptables 实现 nat 上网
 
-<br>
+- iptables 的五链：
+  - PREROUTING、INPUT、FORWARD、OUTPUT、POSTROUTING
+- iptables 的四表：
+  - filter、nat、mangle、raw
 
-[Learn more](https://sli.dev/guide/syntax#latex)
+</div>
+</div>
 
 ---
 
-# Diagrams
+# 3. 虚拟网络安装配置
+Neutron 的脚本部署
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+<div class="grid grid-cols-2 gap-4">
+<div>
 
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
+1. 定义 IP 和主机名变量，后续部署使用
+2. 设置语言为中文、编码为 `UTF-8`
+3. 利用 `firewalld` 开放端口，更新防火墙规则
+4. 配置 MySQL，启动 `mariadb.service`
+5. 启动 `rabbitmqp-server`，增加新用户名和密码，给用户赋予配置、读、写权限
+	> 此处发生错误，在 `/etc/rabbitmq/rabbitmq-env.conf` 文件中添加 `NODENAME=rabbit@localhost`，重启 `rabbitmq-server` 解决。
+6. 将 `memcached` 监听地址改为所有 IP，启动服务
+7. MySQL 创建 `keystone` 和 `neutron` 数据库
+8. 更新 `keystone` 配置文件，设置文件所有权，设置管理 IP，初始化数据库信息和 `Fernet` 密钥数据库，并设置密码和节点
 
 </div>
+<div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+9. 设置管理 IP，配置 HTTP 配置文件，启动服务
+10. 配置用户名、密码、项目名等信息
+11. 获取 openstack token 并创建 service 项目
+12. 创建 neutron 用户，加入 service 项目、添加 admin 权限，创建 network 服务
+13. 更新 neutron 配置文件，设置文件所有权和管理 IP
+14. 更新 ml2 配置文件和所有权
+15. 更新 openvswitch_agent 配置文件、所有权、业务 IP
+16. 更新 l3_agent 配置文件和所有权
+17. 更新 dhcp_agent 配置文件和所有权
+18. 更新 ml2_conf 配置文件，同步数据库
+19. 启动 neutron 服务
 
+</div>
+</div>
+
+---
+
+# 3. 虚拟网络安装配置
+&nbsp;
+
+**验证网络操作**：使用 `openstack network agent list` 命令列出代理以验证启动 neutron 代理是否成功：
+![](/agent-list.png)
+
+**Neutron 创建网络和子网**：使用 `neutron net-create net1` 命令创建名为 `net1` 的网络，使用 `neutron subnet-create net1 192.168.2.0/24 --name subnet1` 命令创建名为 `subnet1`、IP 为 `192.168.0.2/24` 的子网：
+![](/create-result.png)
+
+---
+
+# 4. 深入理解 Neutron - Openstack 网络实现
+### 4.1 OpenStack 网络实现方式对比
+
+- **gre**
+
+  跨不同网络实现二次 IP 通信，L3 上面包装 L3，封装在 IP 报文中，点对点隧道，不用变更底层网络架构重建 L2、L3 通信，实现不同 host 之间网络 guest 互通，方便 guest 迁移，支持网络数量扩大。
+
+- **vlan**
+
+  vlan 将局域网设备从逻辑上划分成一个个网段，从而实现虚拟工作组的数据交换技术。分隔了端口，即便在同一个交换机上，处于不同 VLAN 的端口也是不能通信的。这样一个物理的交换机可以当作多个逻辑的交换机使用；使网络更加安全，不同 VLAN 不能直接通信，杜绝了广播信息的不安全性，且便于灵活管理。
+
+- **vxlan**
+
+  vxlan 将虚拟机发出的数据包封装在 UDP 中，并使用物理网络的 IP/MAC 作为 outer-header 进行封装，然后在物理 IP 网上传输，到达目的地后由隧道终结点解封并将数据发送给目标虚拟机。解决了 vlan 的数量和物理网络基础设施的限制，避免了 TOR 交换机 MAC 表耗尽，满足了多租户场景。
+
+---
+
+# 4. 深入理解 Neutron - Openstack 网络实现
+
+### 4.2 DVR 对不同流量的区分
+
+为了降低网络节点的负载，同时提高可扩展性，OpenStack 自 Juno 版本开始正式引入了分布式路由（Distributed Virtual Router，DVR）特性（用户可以选择使用与否），来让计算节点自己来处理原先的大量东西向流量和非 SNAT 南北流量（有 floating IP 的 vm 跟外面的通信）。
+
+这样网络节点只需要处理占到一部分的 SNAT （无 floating IP 的 vm 跟外面的通信）流量，大大降低了负载和整个系统对网络节点的依赖。很自然的，FWaaS 也可以跟着放到计算节点上。
+
+典型场景：从网络的访问看，涉及到路由服务的至少是需要跨子网的访问，又包括是否是同一机器、是否是涉及到外网（东西向 vs 南北向）。DVR根据如下特征区分不同流量。
+
+| 方向 | 同一机器                    | 不同机器          |
+| --- | -------------------------- | ---------------- |
+| 东西 | 本地网桥处理                 | 本地东西路由器     |
+| 南北 | 本地南北路由器  floating 转发 | 网络节点 SNAT 转发 |
+
+---
+
+# 4. 深入理解 Neutron - Openstack 网络实现
+### 4.3 OpenStack 中网络节点和计算节点的不同作用
+
+- 网络节点：网络节点有且仅有 Neutron 服务，就是网络服务。Neutron 主要负责管理私有网段和公有网段之间的通信，同时管理虚拟机网络之间的通信以及防火墙等等。一般在部署时会部署两个以上的网络端口，分别用于与控制节点通信、同计算/存储节点通信、用于外部的虚拟机与相应的网络之间的通信。
+
+- 计算节点：计算节点主要包含计算服务、网络服务以及监控服务。计算节点对所部署的虚拟机提供基本的网络功能支持，包括隔离不同租户的虚拟机和进行一些基本的安全策略管理。计算节点包含 Nova，Neutron，Telemeter 三个服务：
+	- 基础服务 Nova：提供虚拟机的创建，运行，迁移，快照等各种围绕虚拟机的服务，并提供 API 与控制节点对接，由控制节点下发任务
+	- 基础服务 Neutron：提供计算节点与网络节点之间的通信服务
+	- 扩展服务 Telmeter：提供计算节点的监控代理，将虚拟机的情况反馈给控制节点，是 Centimeter 的代理服务
+
+---
+
+# 4. 深入理解 Neutron - Openstack 网络实现
+### 4.4 HAProxy 实现负载均衡策略的方式
+
+HAProxy 提供高可用性、负载均衡以及基于 TCP 和 HTTP 应用的代理，根据运行模式可以很简单安全的整合到当前的架构中，同时可以保护web服务器不被暴露到网络上。HAProxy 应用在七层架构中，较为灵活，支持 SSL。
+
+Neutron 支持的负载均衡算法：
+- 轮询 Round robin，最普遍的算法，每当有一个新的请求来临，负载均衡器都会按顺序选择服务器池中的一台设备来响应。
+- 最少连接算法 Least connections，负载均衡器收到新的请求时，都会从当前服务器池中挑选一个当前并发连接数最少的服务器来负责。
+- IP hash，负载均衡器在收到主机的连接请求后，会根据数据包的源IP地址字段的 hash 值，同时按照轮询的方式为客户端分配主机，当负载均衡器再次收到同一IP的请求时，则会按照之前的记录为客户端分配上次建立连接的主机。
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
-
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+# 谢谢
