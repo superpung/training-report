@@ -234,8 +234,6 @@ netfilter 模块中的 mangle 处理的时刻点如下图所示：
 
 ![](./public/r-1-7-3.png)
 
-处理程序（处理接收报文）处理程序（准备发送报文）目的地是本机目的地非本机manglemanglemanglemanglemangleBCAED路由判决路由判决选择一个出口FORWARDOUTPUTPRE-ROUTINGPOST-ROUTINGIP报文入口IP报文出口Linux用户空间Linux内核空间（Netf ilter）INPUT图2-26Netf ilter中的Mangle的处理时刻点
-
 ### 1.8 Linux 虚拟网络基础总结
 
 tap、tun、veth  pair 在 Linux 中都被称为设备，但是在与日常概念的类比中，常常被称作接口。Neutron 利用这些“接口”进行 Bridge 之间的连接、Bridge 与 VM（虚拟机）的连接、Bridge 与 Router之间的连接。三者与物理网卡之间的对比关系，如下图所示：
